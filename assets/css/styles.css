@@ -113,68 +113,11 @@ header {
     z-index: 1000;
 }
 
-/* Top Bar */
-.header-top {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    font-size: 0.85rem;
-    padding: 8px 0;
-}
-
-.header-top .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.header-top-left {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-}
-
-.header-top-left span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.header-top-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.social-links {
-    display: flex;
-    gap: 10px;
-}
-
-.social-links a {
-    color: var(--primary-light);
-    font-size: 1rem;
-}
-
-.social-links a:hover {
-    color: var(--white);
-    transform: translateY(-2px);
-}
-
-.login-link a {
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Main Header */
+/* Main Header (logo, busca, carrinho) */
 .header-main {
     padding: 15px 0;
     border-bottom: 1px solid var(--light-gray);
+    background-color: var(--white);
 }
 
 .header-main .container {
@@ -275,6 +218,64 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Barra Laranja (entre header-main e navegação) */
+.header-top-bar {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    font-size: 0.85rem;
+    padding: 8px 0;
+}
+
+.header-top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-top-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-top-left span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    color: var(--primary-light);
+    font-size: 1rem;
+}
+
+.social-links a:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.login-link a {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* Navegação Principal */
@@ -1086,7 +1087,7 @@ footer {
 
 /* Telas muito pequenas (até 360px) */
 @media (max-width: 360px) {
-    .header-top {
+    .header-top-bar {
         display: none;
     }
     
@@ -1125,7 +1126,35 @@ footer {
     }
 }
 
-/* Acessibilidade */
+/* ================== MODIFICAÇÕES ESPECÍFICAS ================== */
+
+/* 1. Remover position: sticky no celular para header-top-bar */
+@media (max-width: 768px) {
+    header {
+        position: relative; /* Remove sticky no mobile */
+    }
+    
+    .header-top-bar {
+        position: relative;
+        top: 0;
+    }
+}
+
+/* 2. Esconder a barra laranja em telas muito pequenas */
+@media (max-width: 480px) {
+    .header-top-bar {
+        display: none;
+    }
+}
+
+/* 3. Ajuste específico para a barra laranja em desktop */
+@media (min-width: 769px) {
+    .header-top-bar {
+        display: block;
+    }
+}
+
+/* Acessibilidade - redução de movimento */
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
@@ -1134,5 +1163,60 @@ footer {
     
     .floating-cart {
         transition: none;
+    }
+}
+
+/* GARANTIR QUE O TEMA SEJA SEMPRE CLARO */
+@media (prefers-color-scheme: dark) {
+    /* Forçar tema claro mesmo se o sistema estiver em modo escuro */
+    body {
+        background-color: #f9f9f9 !important;
+        color: #212529 !important;
+    }
+    
+    .product-card-v2,
+    .checkout-steps,
+    .review-info,
+    footer,
+    header,
+    .floating-cart,
+    .notification-toast {
+        background-color: #FFFFFF !important;
+        color: #212529 !important;
+        border-color: #E9ECEF !important;
+    }
+    
+    input, select, textarea {
+        background-color: #FFFFFF !important;
+        color: #212529 !important;
+        border-color: #E9ECEF !important;
+    }
+    
+    .product-card-v2 h3,
+    .step-header h2,
+    .category-header h2,
+    .footer-section h3,
+    .floating-cart-header h3,
+    .review-info h4 {
+        color: #D45A00 !important;
+    }
+    
+    .product-price,
+    .floating-cart-item-price,
+    .floating-cart-total,
+    .summary-item.total span {
+        color: #DC3545 !important;
+    }
+    
+    .nav-list li a,
+    .footer-section ul li a,
+    .footer-contact p,
+    .copyright {
+        color: #6C757D !important;
+    }
+    
+    .nav-list li a:hover,
+    .footer-section ul li a:hover {
+        color: #FF6B00 !important;
     }
 }
