@@ -1136,32 +1136,3 @@ footer {
         transition: none;
     }
 }
-
-/* Modo escuro (opcional) */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
-    
-    .product-card-v2,
-    .checkout-steps,
-    .review-info,
-    footer,
-    header {
-        background-color: #1e1e1e;
-        border-color: #333;
-    }
-    
-    .floating-cart,
-    .notification-toast {
-        background-color: #1e1e1e;
-        color: #e0e0e0;
-    }
-    
-    input, select, textarea {
-        background-color: #2d2d2d;
-        color: #e0e0e0;
-        border-color: #444;
-    }
-}
