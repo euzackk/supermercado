@@ -51,6 +51,7 @@ const toastMessage = document.getElementById('toast-message');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const verProdutosBtn = document.getElementById('ver-produtos-btn');
+const heroBanner = document.getElementById('hero-banner');
 
 // Funções utilitárias
 function showToast(message) {
@@ -608,16 +609,24 @@ function changeStep(step) {
     }
 }
 
+// MODIFICAÇÃO: openCheckout agora também esconde o hero banner
 function openCheckout() {
     productListSection.style.display = 'none';
+    if (heroBanner) {
+        heroBanner.style.display = 'none';
+    }
     checkoutSteps.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     renderStep1();
 }
 
+// MODIFICAÇÃO: closeCheckout agora também mostra o hero banner novamente
 function closeCheckout(showProducts) {
     if (showProducts) {
         productListSection.style.display = 'block';
+        if (heroBanner) {
+            heroBanner.style.display = '';
+        }
         window.scrollTo({ top: productListSection.offsetTop - 100, behavior: 'smooth' });
     }
     checkoutSteps.classList.remove('active');
