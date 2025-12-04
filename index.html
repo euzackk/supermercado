@@ -12,25 +12,6 @@
 <body>
     
     <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="header-top-left">
-                    <span><i class="fas fa-clock"></i> Seg-Sáb: 6h-20h | Dom: 6h-12h</span>
-                    <span><i class="fas fa-map-marker-alt"></i> Porto Velho/RO</span>
-                </div>
-                <div class="header-top-right">
-                    <span>Siga-nos:</span>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/supermercadofamiliapvh/?locale=pt_BR" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/supermercadofamiliapvh?igsh=MW55Yjd3cGh0aThnbQ==" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class="login-link">
-                        <a href="#"><i class="fas fa-user"></i> Minha Conta</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="header-main">
             <div class="container">
                 <div class="logo">
@@ -47,6 +28,26 @@
                 <div class="floating-cart-toggle" id="floating-cart-toggle" role="button" tabindex="0" aria-label="Ver carrinho">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count-badge" id="cart-count-badge">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra laranja movida para aqui (entre header-main e header-nav) -->
+        <div class="header-top-bar">
+            <div class="container">
+                <div class="header-top-left">
+                    <span><i class="fas fa-clock"></i> Seg-Sáb: 6h-20h | Dom: 6h-12h</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Porto Velho/RO</span>
+                </div>
+                <div class="header-top-right">
+                    <span>Siga-nos:</span>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/supermercadofamiliapvh/?locale=pt_BR" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/supermercadofamiliapvh?igsh=MW55Yjd3cGh0aThnbQ==" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="login-link">
+                        <a href="#"><i class="fas fa-user"></i> Minha Conta</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,7 +69,8 @@
     <main class="main-content">
         <div class="container">
             
-            <section class="hero-banner-v2" aria-label="Ofertas em destaque">
+            <!-- Hero Banner (será escondido durante checkout) -->
+            <section class="hero-banner-v2" aria-label="Ofertas em destaque" id="hero-banner">
                 <div class="hero-text-v2">
                     <h1>OFERTAS DA SEMANA!</h1>
                     <p>Frescor, Qualidade e Preços Baixos!</p>
